@@ -1,4 +1,11 @@
+import { useRouter } from "next/router";
+
 export default function Sidebar() {
+  const router = useRouter();
+  const handleLogout = () => {
+    router.push("/login");
+    localStorage.removeItem("token");
+  };
   return (
     <>
       <div
@@ -4297,6 +4304,7 @@ export default function Sidebar() {
               data-kt-menu-trigger="click"
               data-kt-menu-overflow="true"
               data-kt-menu-placement="top-start"
+              onClick={handleLogout}
             >
               {/*begin::Svg Icon | path: icons/duotune/arrows/arr076.svg*/}
               <span className="svg-icon svg-icon-2x">

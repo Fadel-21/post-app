@@ -1,14 +1,14 @@
 import Login from "./login";
 import Home from "./home";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Main() {
-  var item;
+  const [token, setToken] = useState();
   useEffect(() => {
-    // Perform localStorage action
-    item = localStorage.getItem("token");
+    setToken(localStorage.getItem("token"));
   }, []);
-  if (item == null) {
+  if (token === undefined || token == null) {
     return <Login />;
   } else {
     return <Home />;

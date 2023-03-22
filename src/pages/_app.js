@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/datatables.bundle.css'
+import { useRouter } from 'next/router'
 // import '@/functions/chat.js'
 // import '@/functions/create-app.js'
 // import '@/functions/general.js'
@@ -13,5 +14,6 @@ import '@/styles/datatables.bundle.css'
 // import '@/functions/widgets.js'
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const router = useRouter()
+  return <Component key={router.asPath} {...pageProps} />
 }

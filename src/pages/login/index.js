@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -9,6 +9,10 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    console.log(localStorage.getItem("token"));
+  }, []);
 
   function capitalizeWords(str) {
     return str
